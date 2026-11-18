@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Mateus Tavares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="espaco" aria-hidden="true"></canvas>
+
+    <header class="topo">
+        <a class="logo" href="#sobre" aria-label="Voltar ao início">MF</a>
+
+        <button id="btn-menu" class="btn-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+
+        <nav id="menu" class="menu" aria-label="Principal">
+            <a href="#sobre">Sobre mim</a>
+            <a href="#conhecimento">Conhecimentos</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+            <button id="btn-tema" class="btn-tema" type="button" aria-pressed="true">Tema claro</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="sobre" class="hero">
+            <img class="hero-foto" src="foto1.jpg" alt="Foto de Mateus">
+            <div class="hero-transicao" aria-hidden="true"></div>
+
+            <div class="hero-card">
+                <h1>Mateus da Silva Tavares Filho</h1>
+                <p class="cargo">Estudante de Front-End em formação</p>
+                <p class="cargo">Universidade Católica do Salvador</p>
+
+                <p id="resumo-perfil" class="resumo"></p>
+
+                <p>Meu nome é Mateus, nasci em 2007 e atualmente tenho 18 anos. Comecei minha jornada acadêmica no curso de Engenharia de Software, onde venho adquirindo conhecimentos sobre programação, computadores e tecnologia.</p>
+
+                <p id="bio-extra" hidden>Tenho grande interesse em aprender, desenvolver novas habilidades e enfrentar desafios. Busco evoluir constantemente, tanto pessoal quanto profissionalmente, e transformar meus conhecimentos em soluções que possam fazer a diferença.</p>
+
+                <div class="hero-acoes">
+                    <button id="btn-bio" class="btn-texto" type="button" aria-expanded="false" aria-controls="bio-extra">Mostrar mais</button>
+                    <a href="#projetos" class="botao">Ver projetos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="conhecimento" class="bloco">
+            <h2>Conhecimentos</h2>
+
+            <ul class="chips">
+                <li>Lógica de Programação e Algoritmos</li>
+                <li>Introdução à Engenharia de Software</li>
+                <li>Arquitetura de Computadores</li>
+                <li>Raciocínio Lógico</li>
+                <li>Banco de Dados 1</li>
+                <li>Cálculo 1</li>
+                <li>Processos de Software</li>
+                <li>Programação Front-End</li>
+                <li>Segurança e Auditoria de Sistemas</li>
+            </ul>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tecnologias</th>
+                            <th>Nível</th>
+                            <th>Onde aplico</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>Intermediário</td>
+                            <td>VS Code (Estrutura de páginas)</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Iniciante</td>
+                            <td>VS Code (Estilização Visual)</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>Iniciante</td>
+                            <td>VS Code (Interatividade)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="projetos" class="bloco">
+            <h2>Projetos</h2>
+
+            <div id="filtros" class="filtros" role="group" aria-label="Filtrar projetos por categoria">
+                <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+                <button type="button" data-filtro="html" aria-pressed="false">HTML</button>
+                <button type="button" data-filtro="css" aria-pressed="false">CSS</button>
+                <button type="button" data-filtro="javascript" aria-pressed="false">JavaScript</button>
+            </div>
+
+            <p id="contador" class="contador" aria-live="polite"></p>
+
+            <ul id="lista-projetos" class="orbitas">
+                <li class="card" data-categoria="html" data-status="concluido">
+                    <span class="planeta" aria-hidden="true">HTML</span>
+                    <div class="corpo">
+                        <h3>Meu Primeiro Site</h3>
+                        <p>Projeto criado para praticar estrutura HTML e organização de conteúdo.</p>
+                        <div class="tags"><span>HTML</span><span>Concluído</span></div>
+                    </div>
+                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Meu Primeiro Site">Remover</button>
+                </li>
+
+                <li class="card" data-categoria="javascript" data-status="concluido">
+                    <span class="planeta" aria-hidden="true">JS</span>
+                    <div class="corpo">
+                        <h3>Laboratório de JavaScript</h3>
+                        <p>Exercícios com variáveis, condicionais e funções, com saída no console.</p>
+                        <div class="tags"><span>JavaScript</span><span>Concluído</span></div>
+                    </div>
+                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Laboratório de JavaScript">Remover</button>
+                </li>
+
+                <li class="card" data-categoria="javascript" data-status="andamento">
+                    <span class="planeta" aria-hidden="true">JS</span>
+                    <div class="corpo">
+                        <h3>Portfólio Pessoal</h3>
+                        <p>Projeto em desenvolvimento para apresentar meus conhecimentos.</p>
+                        <div class="tags"><span>HTML, CSS, JavaScript</span><span>Em andamento</span></div>
+                    </div>
+                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Portfólio Pessoal">Remover</button>
+                </li>
+            </ul>
+
+            <p id="vazio" class="vazio" hidden>Nenhum projeto nesta categoria. Cadastre um novo logo abaixo.</p>
+
+            <form id="form-projeto" class="form-projeto" novalidate>
+                <h3>Cadastrar novo projeto</h3>
+
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Nome do projeto" aria-describedby="erro-titulo">
+                    <span id="erro-titulo" class="erro"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="status">Status</label>
+                    <select id="status" name="status">
+                        <option value="andamento">Em andamento</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" rows="3" placeholder="Conte em uma frase o que o projeto faz"></textarea>
+                </div>
+
+                <button type="submit" class="botao">Cadastrar projeto</button>
+            </form>
+
+            <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+            <aside class="extras">
+                <h3>Informações extras</h3>
+                <p><strong>Objetivo atual:</strong> desenvolver meus primeiros projetos de Front-End.</p>
+                <ul>
+                    <li><a href="https://github.com/mateusfilho" target="_blank" rel="noopener">GitHub: github.com/mateusfilho</a></li>
+                    <li><a href="https://www.linkedin.com/in/mateusfilho" target="_blank" rel="noopener">LinkedIn: linkedin.com/in/mateusfilho</a></li>
+                    <li>Interesse: Desenvolvimento Web</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section id="contato" class="bloco">
+            <h2>Contato</h2>
+
+            <form id="form-contato" class="form-contato" action="https://formsubmit.co/mateusfilhot@gmail.com" method="POST" novalidate>
+                <input type="hidden" name="_subject" value="Novo contato pelo Portfólio!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" autocomplete="name" aria-describedby="erro-nome">
+                    <span id="erro-nome" class="erro"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" autocomplete="email" aria-describedby="erro-email">
+                    <span id="erro-email" class="erro"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto" aria-describedby="erro-assunto">
+                    <span id="erro-assunto" class="erro"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" rows="5" aria-describedby="erro-mensagem"></textarea>
+                    <span id="erro-mensagem" class="erro"></span>
+                </div>
+
+                <button type="submit" id="btn-enviar" class="botao">Enviar mensagem</button>
+                <p id="status-contato" class="status-contato" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>2026 - Mateus da Silva Tavares Filho. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
