@@ -1,3 +1,6 @@
+/* ==========================================================
+   PARTE 1 - Tarefa de JavaScript (console, condicionais, funções)
+   ========================================================== */
 
 console.log("Ambiente Preparado!");
 
@@ -41,6 +44,9 @@ console.log(apresentarPerfil(nome, area));
 console.log("Total:", resumirProjetos(2, 1));
 
 
+/* ==========================================================
+   PARTE 2 - Interatividade do portfólio
+   ========================================================== */
 
 const raiz = document.documentElement;
 const btnMenu = document.querySelector("#btn-menu");
@@ -53,21 +59,16 @@ const filtros = document.querySelector("#filtros");
 const lista = document.querySelector("#lista-projetos");
 const contador = document.querySelector("#contador");
 const vazio = document.querySelector("#vazio");
-const aviso = document.querySelector("#aviso");
-const form = document.querySelector("#form-projeto");
 const formContato = document.querySelector("#form-contato");
 const btnEnviar = document.querySelector("#btn-enviar");
 const statusContato = document.querySelector("#status-contato");
 
 let filtroAtual = "todos";
 
-const NOMES_CATEGORIA = { html: "HTML", css: "CSS", javascript: "JavaScript" };
-const SIGLAS_CATEGORIA = { html: "HTML", css: "CSS", javascript: "JS" };
-const NOMES_STATUS = { concluido: "Concluído", andamento: "Em andamento" };
-
 resumoPerfil.textContent = apresentarPerfil(nome, area);
 
 
+/* ----- Menu no celular ----- */
 
 btnMenu.addEventListener("click", () => {
     const aberto = menu.classList.toggle("aberto");
@@ -82,6 +83,7 @@ menu.addEventListener("click", (evento) => {
 });
 
 
+/* ----- Tema escuro / claro ----- */
 
 btnTema.addEventListener("click", () => {
     const escuro = raiz.dataset.tema !== "escuro";
@@ -92,6 +94,7 @@ btnTema.addEventListener("click", () => {
 });
 
 
+/* ----- Mostrar mais / menos ----- */
 
 btnBio.addEventListener("click", () => {
     bioExtra.hidden = !bioExtra.hidden;
@@ -101,6 +104,7 @@ btnBio.addEventListener("click", () => {
 });
 
 
+/* ----- Filtro por categoria ----- */
 
 function aplicarFiltro() {
     const cards = lista.querySelectorAll(".card");
@@ -134,22 +138,7 @@ filtros.addEventListener("click", (evento) => {
 });
 
 
-
-lista.addEventListener("click", (evento) => {
-    const botao = evento.target.closest('[data-acao="remover"]');
-
-    if (!botao) return;
-
-    const card = botao.closest(".card");
-    const titulo = card.querySelector("h3").textContent;
-
-    card.remove();
-    aplicarFiltro();
-
-    aviso.textContent = `Projeto "${titulo}" removido.`;
-});
-
-
+/* ----- Validação (serve para os dois formulários) ----- */
 
 function validarCampo(formulario, campo, mensagem, validador) {
     const elemento = formulario.elements[campo];
@@ -168,83 +157,7 @@ const emailValido = (texto) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(texto);
 const mensagemValida = (texto) => texto.length >= 10;
 
 
-
-function criarCard(dados) {
-    const card = document.createElement("li");
-    card.className = "card nova";
-
-    card.dataset.categoria = dados.categoria;
-    card.dataset.status = dados.status;
-
-    const planeta = document.createElement("span");
-    planeta.className = "planeta";
-    planeta.setAttribute("aria-hidden", "true");
-    planeta.textContent = SIGLAS_CATEGORIA[dados.categoria];
-
-    const corpo = document.createElement("div");
-    corpo.className = "corpo";
-
-    const titulo = document.createElement("h3");
-    titulo.textContent = dados.titulo;
-
-    const descricao = document.createElement("p");
-    descricao.textContent = dados.descricao || "Sem descrição ainda.";
-
-    const tags = document.createElement("div");
-    tags.className = "tags";
-
-    const tagCategoria = document.createElement("span");
-    tagCategoria.textContent = NOMES_CATEGORIA[dados.categoria];
-
-    const tagStatus = document.createElement("span");
-    tagStatus.textContent = NOMES_STATUS[dados.status];
-
-    tags.append(tagCategoria, tagStatus);
-    corpo.append(titulo, descricao, tags);
-
-    const remover = document.createElement("button");
-    remover.textContent = "Remover";
-    remover.type = "button";
-    remover.className = "remover";
-    remover.dataset.acao = "remover";
-    remover.setAttribute("aria-label", `Remover projeto ${dados.titulo}`);
-
-    card.append(planeta, corpo, remover);
-
-    return card;
-}
-
-form.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-
-    const tituloValido = validarCampo(
-        form,
-        "titulo",
-        "Digite pelo menos 3 caracteres."
-    );
-
-    if (!tituloValido) {
-        aviso.textContent = "Corrija o título.";
-        form.elements.titulo.focus();
-        return;
-    }
-
-    const dados = {
-        titulo: form.elements.titulo.value.trim(),
-        categoria: form.elements.categoria.value,
-        status: form.elements.status.value,
-        descricao: form.elements.descricao.value.trim()
-    };
-
-    lista.append(criarCard(dados));
-
-    form.reset();
-    aplicarFiltro();
-
-    aviso.textContent = "Projeto cadastrado com sucesso!";
-});
-
-
+/* ----- Formulário de contato (envio por fetch) ----- */
 
 function mostrarStatusContato(texto, estado) {
     statusContato.textContent = texto;
@@ -298,6 +211,7 @@ formContato.addEventListener("submit", async (evento) => {
 });
 
 
+/* ----- Espaço sideral animado (canvas) ----- */
 
 const canvas = document.querySelector("#espaco");
 const ctx = canvas.getContext("2d");
@@ -402,5 +316,6 @@ criarEstrelas();
 requestAnimationFrame(desenharEspaco);
 
 
+/* ----- Estado inicial ----- */
 
 aplicarFiltro();
