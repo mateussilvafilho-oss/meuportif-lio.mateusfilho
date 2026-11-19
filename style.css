@@ -10,6 +10,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ===== TEMAS ===== */
 
 :root {
     color-scheme: dark;
@@ -87,6 +88,7 @@ h2 {
     outline-offset: 3px;
 }
 
+/* ===== MENU ===== */
 
 .topo {
     position: fixed;
@@ -163,6 +165,7 @@ h2 {
     display: none;
 }
 
+/* ===== HERO: foto em tela inteira ===== */
 
 .hero {
     --largura-card: clamp(340px, 38vw, 560px);
@@ -255,6 +258,7 @@ h2 {
     }
 }
 
+/* ===== BLOCOS ===== */
 
 .bloco {
     position: relative;
@@ -318,6 +322,7 @@ h2 {
     cursor: pointer;
 }
 
+/* ===== CONHECIMENTOS ===== */
 
 .chips {
     list-style: none;
@@ -364,6 +369,7 @@ tbody tr {
     border-top: 1px solid var(--borda);
 }
 
+/* ===== PROJETOS ===== */
 
 .filtros {
     display: flex;
@@ -406,18 +412,20 @@ tbody tr {
     text-align: center;
 }
 
+/* Cards em órbita: uma linha por projeto, com um planeta ao lado */
+
 .orbitas {
     list-style: none;
     display: grid;
     gap: 14px;
-    margin: 0 0 30px;
+    margin: 0;
     padding: 0;
 }
 
 .card {
     --planeta-cor: #8aa4ff;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 22px;
     padding: 18px 22px;
@@ -442,21 +450,6 @@ tbody tr {
 
 .card[data-categoria="javascript"] {
     --planeta-cor: #ffd84d;
-}
-
-.card.nova {
-    animation: pouso 0.55s ease-out;
-}
-
-@keyframes pouso {
-    from {
-        opacity: 0;
-        transform: translateX(50px) scale(0.96);
-    }
-    to {
-        opacity: 1;
-        transform: none;
-    }
 }
 
 .planeta {
@@ -512,29 +505,6 @@ tbody tr {
     font-size: 0.8rem;
 }
 
-.remover {
-    padding: 6px 14px;
-    font: inherit;
-    font-weight: 500;
-    color: var(--erro);
-    background: transparent;
-    border: 2px solid var(--erro);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.25s, color 0.25s;
-}
-
-.remover:hover {
-    background: var(--erro);
-    color: #10163a;
-}
-
-.aviso {
-    min-height: 1.6em;
-    margin: 14px 0 0;
-    color: var(--texto-suave);
-}
-
 .extras {
     margin-top: 28px;
     padding-top: 20px;
@@ -549,13 +519,10 @@ tbody tr {
     color: var(--foco);
 }
 
+/* ===== FORMULÁRIOS ===== */
 
 form {
     max-width: 600px;
-}
-
-.form-projeto h3 {
-    margin: 0 0 14px;
 }
 
 .campo {
@@ -621,6 +588,7 @@ footer {
     color: var(--texto-suave);
 }
 
+/* ===== RESPONSIVO ===== */
 
 @media (max-width: 768px) {
     .btn-menu {
@@ -679,10 +647,6 @@ footer {
         border-radius: 14px 30px 30px 14px;
     }
 
-    .remover {
-        grid-column: 1 / -1;
-        justify-self: start;
-    }
 
     .botao {
         width: 100%;
