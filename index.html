@@ -30,6 +30,7 @@
 
     <main>
 
+        <!-- HERO: foto em tela inteira, transição e card azul -->
         <section id="sobre" class="hero">
             <img class="hero-foto" src="foto1.jpg" alt="Foto de Mateus">
             <div class="hero-transicao" aria-hidden="true"></div>
@@ -41,7 +42,7 @@
 
                 <p id="resumo-perfil" class="resumo"></p>
 
-                <p>Meu nome é Mateus, nasci em 2007 e atualmente tenho 18 anos. Comecei minha jornada acadêmica no curso de Engenharia de Software, onde venho adquirindo conhecimentos sobre programação, computadores e tecnologia.</p>
+                <p>Comecei minha jornada acadêmica no curso de Engenharia de Software, onde venho adquirindo conhecimentos sobre programação, computadores e tecnologia.</p>
 
                 <p id="bio-extra" hidden>Tenho grande interesse em aprender, desenvolver novas habilidades e enfrentar desafios. Busco evoluir constantemente, tanto pessoal quanto profissionalmente, e transformar meus conhecimentos em soluções que possam fazer a diferença.</p>
 
@@ -85,12 +86,12 @@
                         </tr>
                         <tr>
                             <td>CSS</td>
-                            <td>Iniciante</td>
+                            <td>Intermediário</td>
                             <td>VS Code (Estilização Visual)</td>
                         </tr>
                         <tr>
                             <td>JavaScript</td>
-                            <td>Iniciante</td>
+                            <td>Intermediário</td>
                             <td>VS Code (Interatividade)</td>
                         </tr>
                     </tbody>
@@ -118,7 +119,6 @@
                         <p>Projeto criado para praticar estrutura HTML e organização de conteúdo.</p>
                         <div class="tags"><span>HTML</span><span>Concluído</span></div>
                     </div>
-                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Meu Primeiro Site">Remover</button>
                 </li>
 
                 <li class="card" data-categoria="javascript" data-status="concluido">
@@ -128,65 +128,26 @@
                         <p>Exercícios com variáveis, condicionais e funções, com saída no console.</p>
                         <div class="tags"><span>JavaScript</span><span>Concluído</span></div>
                     </div>
-                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Laboratório de JavaScript">Remover</button>
                 </li>
 
                 <li class="card" data-categoria="javascript" data-status="andamento">
                     <span class="planeta" aria-hidden="true">JS</span>
                     <div class="corpo">
-                        <h3>Portfólio Pessoal</h3>
+                        <h3>Portifólio Pessoal</h3>
                         <p>Projeto em desenvolvimento para apresentar meus conhecimentos.</p>
                         <div class="tags"><span>HTML, CSS, JavaScript</span><span>Em andamento</span></div>
                     </div>
-                    <button type="button" class="remover" data-acao="remover" aria-label="Remover projeto Portfólio Pessoal">Remover</button>
                 </li>
             </ul>
 
-            <p id="vazio" class="vazio" hidden>Nenhum projeto nesta categoria. Cadastre um novo logo abaixo.</p>
-
-            <form id="form-projeto" class="form-projeto" novalidate>
-                <h3>Cadastrar novo projeto</h3>
-
-                <div class="campo">
-                    <label for="titulo">Título</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Nome do projeto" aria-describedby="erro-titulo">
-                    <span id="erro-titulo" class="erro"></span>
-                </div>
-
-                <div class="campo">
-                    <label for="categoria">Categoria</label>
-                    <select id="categoria" name="categoria">
-                        <option value="html">HTML</option>
-                        <option value="css">CSS</option>
-                        <option value="javascript">JavaScript</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="status">Status</label>
-                    <select id="status" name="status">
-                        <option value="andamento">Em andamento</option>
-                        <option value="concluido">Concluído</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="descricao">Descrição</label>
-                    <textarea id="descricao" name="descricao" rows="3" placeholder="Conte em uma frase o que o projeto faz"></textarea>
-                </div>
-
-                <button type="submit" class="botao">Cadastrar projeto</button>
-            </form>
-
-            <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+            <p id="vazio" class="vazio" hidden>Nenhum projeto nesta categoria por enquanto.</p>
 
             <aside class="extras">
                 <h3>Informações extras</h3>
                 <p><strong>Objetivo atual:</strong> desenvolver meus primeiros projetos de Front-End.</p>
                 <ul>
                     <li><a href="https://github.com/mateusfilho" target="_blank" rel="noopener">GitHub: github.com/mateusfilho</a></li>
-                    <li><a href="https://www.linkedin.com/in/mateusfilho" target="_blank" rel="noopener">LinkedIn: linkedin.com/in/mateusfilho</a></li>
-                    <li>Interesse: Desenvolvimento Web</li>
+                    <li><a href="https://www.linkedin.com/in/mateus-da-silva-tavares-filho-465b6b3a1/" target="_blank" rel="noopener">LinkedIn: linkedin.com/in/mateusfilho</a></li>
                 </ul>
             </aside>
         </section>
